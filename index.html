@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bayu Mahardika</title>
+    <!---external css ---->
+    <link rel="stylesheet" href="style.css">
+    <!---font awesome cdn for font icons---->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+</head>
+<body>
+   <div class="container">
+       <div class="profile-card"> 
+            <div class="profile-pic">
+                <img src="images/avatar.webp" alt="user avatar">
+            </div>
+
+            <div class="profile-details">
+                 <div class="intro">
+                    <h2>Bayu Mahardika</h2>
+                    <h4><span class="input"> </span></h4>
+                    <!-- <h4>UI/UX Designer</h4> -->
+                    <div class="social">
+                        <a href="https://www.instagram.com/masbaiu"><i class="fab fa-instagram" style="color:var(--instagram-color)"></i></a>
+                        <a href="https://x.com/madbaiu"><i class="fab fa-x-twitter"  style="color:var(--x-color)"></i></a>
+                        <a href="https://linktr.ee/masbaiu"><i class="fa-solid fa-tree"  style="color:var(--linktree-color)"></i></a>
+                        <a href="https://www.linkedin.com/in/bmrd"><i class="fab fa-linkedin"  style="color:var(--linkedin-color)"></i></a>
+                    </div>
+                 </div>
+
+                 <div class="contact-info">
+                    <div class="row">
+                         <div class="icon">
+                            <i class="fab fa-whatsapp"  style="color:var(--whatsapp-color)"></i>
+                         </div>
+                         <div class="content">
+                            <span>Phone</span>
+                            <h5>+62 822-3445-6370</h5>
+                         </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="icon">
+                           <i class="fa fa-envelope-open"  style="color:var(--mail-color)"></i>
+                        </div>
+                        <div class="content">
+                           <span>Email</span>
+                           <h5>bmrdcollege@gmail.com</h5>
+                        </div>
+                   </div>
+    
+                   <div class="row">
+                    <div class="icon">
+                       <i class="fa fa-location-dot"  style="color:var(--location-color)"></i>
+                    </div>
+                    <div class="content">
+                       <span>Location</span>
+                       <h5>East Kalimantan, Indonesia</h5>
+                    </div>
+                 </div>
+
+            </div>
+               <button class="download-btn"> <i class="fa fa-download"></i> Download CV</button>
+            </div>
+       </div>
+
+       <!----about section ----->
+       <div class="about">
+           <h1>About Me</h1>
+
+           <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Morbi metus libero, cursus eget felis id, faucibus molestie est.
+            Maecenas vel ipsum vel erat pellentesque sollicitudin at nec augue.
+            Integer eget placerat purus. Praesent dapibus justo gravida lobortis feugiat.
+          </p>
+
+          <p>
+            Pellentesque auctor pretium orci in ullamcorper.
+            Donec a volutpat nulla, sed faucibus ipsum. Donec fringilla nisl ut nulla ultrices elementum.
+            Nullam finibus nisl quis libero viverra egestas. Nullam iaculis non enim sed fermentum.
+          </p>
+          
+          <h2>What I Do !!!</h2>
+          <div class="work">
+             <div class="workbox">
+                 <div class="icon">
+                    <img src="images/ui.svg" alt="">
+                 </div>
+                 <div class="desc">
+                    <h3>UI/UX Designer</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam euismod volutpat.</p>
+                 </div>
+             </div>
+
+             <div class="workbox">
+                <div class="icon">
+                   <img src="images/app.svg" alt="">
+                </div>
+                <div class="desc">
+                   <h3>App Developement</h3>
+                   <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam euismod volutpat.</p>
+                </div>
+            </div>
+
+            <div class="workbox">
+                <div class="icon">
+                   <img src="images/api.svg" alt="">
+                </div>
+                <div class="desc">
+                   <h3>API Developement</h3>
+                   <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam euismod volutpat.</p>
+                </div>
+            </div>
+
+            <div class="workbox">
+                <div class="icon">
+                   <img src="images/web.svg" alt="">
+                </div>
+                <div class="desc">
+                   <h3>Web Developement</h3>
+                   <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam euismod volutpat.</p>
+                </div>
+            </div>
+          </div>
+       </div>
+   </div>
+   <!---typed js for typing text effect-->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.10/typed.min.js"></script>
+   <script>
+      /** creating button click show hide navbar **/
+      // var togglebtn=document.querySelector(".togglebtn");
+      // var nav=document.querySelector(".navlinks");
+      // var links=document.querySelector(".navlinks li");
+
+      // togglebtn.addEventListener("click", function(){
+      //     this.classList.toggle("click");
+      //     nav.classList.toggle("open");
+      // })
+
+      var typed=new Typed(".input",{
+          strings:[,"Network Engineer","Automotive Enthusiast","Penetration Tester"],
+          typedSpeed:55,
+          backSpeed:70,
+          loop:true
+      })
+   </script>
+</body>
+</html>
