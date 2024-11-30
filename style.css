@@ -144,7 +144,6 @@ body{
 .download-btn{
     background: linear-gradient(45deg, #4c4ff6,#e21be2);
     color: black;
-    border-style: hidden;
     border: 2px solid #111;
 }
 .download-btn:hover{
