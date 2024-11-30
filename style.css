@@ -19,7 +19,8 @@
 }
 body{
     /* background: linear-gradient(45deg, var(--purple),var(--purple-light)); */
-    background: #1f1f1f;
+    /* background: #1f1f1f; */
+    background: url("/images/bg/cpnbw.jpg") no-repeat fixed;
 }
 .container{
     display: flex;
