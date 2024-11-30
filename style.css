@@ -20,7 +20,7 @@
 body{
     /* background: linear-gradient(45deg, var(--purple),var(--purple-light)); */
     /* background: #1f1f1f; */
-    background: url("/images/bg/cpnbw.jpg") no-repeat fixed center;
+    background: url("/images/bg/cpn.jpg") no-repeat fixed center;
 }
 .container{
     display: flex;
