@@ -10,6 +10,9 @@
     --mail-color:#EA4335;
     --location-color:#d9abff;
 }
+gelar{ 
+    font-size: 9pt;
+}
 *{
     box-sizing: border-box;
     padding:0;
