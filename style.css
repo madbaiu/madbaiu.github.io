@@ -183,7 +183,11 @@ body{
   box-shadow: 0 0 15px rgba(0, 255, 204, 0.8), 0 0 30px rgba(0, 255, 204, 0.6);
   transform: scale(1.05);
 }
-
+.typed-cursor {
+  font-size: 1.5rem;
+  color: #00ffcc;
+  text-shadow: 0 0 8px #00ffcc, 0 0 15px #00ffcc;
+}
 /*****about section ****/
 .about{
     background-color: #111;
