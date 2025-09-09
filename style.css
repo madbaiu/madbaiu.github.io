@@ -23,7 +23,15 @@ gelar{
 body{
     /* background: linear-gradient(45deg, var(--purple),var(--purple-light)); */
     /* background: #1f1f1f; */
-    background: url("/images/bg/cpn.jpg") no-repeat fixed center;
+    /* background: url("/images/bg/cpn.jpg") no-repeat fixed center; */
+    background: url("/images/bg/cpn.jpg") no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+@media (max-width: 768px) {
+    body {
+        background-attachment: scroll;
+    }
 }
 .container{
     display: flex;
