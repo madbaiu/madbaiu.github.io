@@ -71,6 +71,10 @@
                   <button class="button homelab-btn"><i class="fa fa-terminal"></i> Homelab</button>
                </a>
             </div>
+            <div class="status-box">
+  <span id="status-text">Checking...</span>
+</div>
+
        </div>
 
        <!----about section ----->
@@ -141,5 +145,23 @@
           loop:true
       })
    </script>
+   <script>
+async function checkStatus() {
+  const box = document.querySelector(".status-box");
+  try {
+    await fetch("https://baiu.cloud", { mode: "no-cors" });
+    box.textContent = "ONLINE";
+    box.classList.remove("offline");
+    box.classList.add("online");
+  } catch {
+    box.textContent = "OFFLINE";
+    box.classList.remove("online");
+    box.classList.add("offline");
+  }
+}
+checkStatus();
+setInterval(checkStatus, 30000); // refresh every 30s
+</script>
+
 </body>
 </html>
