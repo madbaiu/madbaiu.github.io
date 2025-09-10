@@ -168,6 +168,18 @@ body{
     border: 2px solid #ffffff;
     color: white;
 }
+.backdash-btn{
+    background: linear-gradient(45deg, #4c4ff6,#e21be2);
+    color: black;
+    border: 2px solid #111;
+    margin-bottom: 20px;
+}
+.backdash-btn:hover{
+    /* background: #aa048e; */
+    border: 2px solid #ffffff;
+    color: white;
+}
+
 .homelab-btn {
   background: #0d0d0d;
   color: #00ffcc;
@@ -215,7 +227,7 @@ body{
   box-shadow: 0 0 12px rgba(255,68,68,0.6);
 }
 
-/*****about section ****/
+/*****about & dashboard section ****/
 .about{
     background-color: #111;
     max-width: 800px;
@@ -252,6 +264,46 @@ body{
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto;
 }
+
+.about-homelab{
+    background-color: #111;
+    width: 900px;
+    max-width: 1000px;
+    padding: 2rem 3rem;
+    border-radius: 10px;
+}
+.about-homelab h1{
+    margin-top: 20px;
+    color:#f2f2f2;
+    margin-bottom: 1.1rem;
+    position: relative;
+    display: inline-block;
+    font-size: 3.5rem;
+}
+.about-homelab h1::after{
+    position: absolute;
+    content: "";
+    top:50%;
+    right:-20%;
+    width:15%;
+    height: 3px;
+    background: linear-gradient(45deg, #4772ff,#f10953);
+}
+.about-homelab h2{
+    color:#f2f2f2;
+    font-size: 2rem;
+    margin:0.5rem 0;
+}
+.about-homelab p{
+    color:#6b6b6b;
+    margin:1.5rem 0;
+}
+.about-homelab .work{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+}
+
 .work .workbox{
     display: flex;
     justify-content: space-between;
@@ -272,6 +324,31 @@ body{
 .work .workbox .desc p{
     margin:0px;
 }
+
+
+
+
+
+.service-link {
+  text-decoration: none; /* remove underline */
+  color: inherit;        /* keep text color */
+}
+
+.service-link .workbox {
+  cursor: pointer; /* show clickable hand cursor */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.service-link .workbox:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 12px rgba(0, 255, 204, 0.6);
+}
+
+
+
+
+
+
 /***Responsive Design ***/
 @media(max-width:768px)
 {
@@ -286,6 +363,21 @@ body{
         font-size: 2.2rem;
     }
     .about .work{
+        grid-template-columns: repeat(1,1fr);
+        grid-template-rows: repeat(4,auto);
+    }
+
+    .about-homelab{
+        width: 1005;
+        max-width: 400px;
+        padding:1rem;
+        margin:1rem;
+
+    }
+    .about-homelab h1{
+        font-size: 2.2rem;
+    }
+    .about-homelab .work{
         grid-template-columns: repeat(1,1fr);
         grid-template-rows: repeat(4,auto);
     }

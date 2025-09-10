@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Bayu Mahardika</title>
+    <link rel="icon" type="image/png" href="images/favi.png"/>
+    <!---external css ---->
+    <link rel="stylesheet" href="style.css">
+    <!---font awesome cdn for font icons---->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+</head>
+<body>
+   <div class="container">
+       <!----about section ----->
+       <div class="about-homelab">
+           <h1>Homelab Dashboard</h1>
+
+          <p>
+            Status of my self-hosted apps :
+          </p>
+          
+          <div class="work">
+
+             <!-- <div class="workbox service" data-url="https://casa.baiu.cloud">
+                 <div class="icon">
+                    <img src="images/network.svg" alt="">
+                 </div>
+                 <div class="desc">
+                    <h3>CasaOS</h3>
+                    <p>Status: <span class="status">Checking...</span></p>
+                 </div>
+             </div>
+
+             <div class="workbox service" data-url="https://nc.baiu.cloud">
+                <div class="icon">
+                   <img src="images/wrench.svg" alt="">
+                </div>
+                <div class="desc">
+                   <h3>Nextcloud</h3>
+                   <p>Status: <span class="status">Checking...</span></p>
+                </div>
+            </div>
+
+            <div class="workbox service" data-url="https://jelly.baiu.cloud">
+                <div class="icon">
+                   <img src="images/design.svg" alt="">
+                </div>
+                <div class="desc">
+                   <h3>Jellyfin</h3>
+                   <p>Status: <span class="status">Checking...</span></p>
+                </div>
+            </div>
+
+            <div class="workbox service" data-url="https://pihole.baiu.cloud">
+                <div class="icon">
+                   <img src="images/pentest.svg" alt="">
+                </div>
+                <div class="desc">
+                   <h3>Pi-Hole</h3>
+                   <p>Status: <span class="status">Checking...</span></p>
+                </div>
+            </div> -->
+
+        <a href="https://casa.baiu.cloud" target="_blank" class="service-link">
+            <div class="workbox service" data-url="https://casa.baiu.cloud">
+                <div class="icon">
+                    <img src="images/network.svg" alt="">
+                </div>
+                <div class="desc">
+                    <h3>CasaOS</h3>
+                    <p>Status: <span class="status">Checking...</span></p>
+                </div>
+            </div>
+        </a>
+
+        <a href="https://nc.baiu.cloud" target="_blank" class="service-link">
+            <div class="workbox service" data-url="https://nc.baiu.cloud">
+                <div class="icon">
+                    <img src="images/wrench.svg" alt="">
+                </div>
+                <div class="desc">
+                    <h3>Nextcloud</h3>
+                    <p>Status: <span class="status">Checking...</span></p>
+                </div>
+            </div>
+        </a>
+
+        <a href="https://jelly.baiu.cloud" target="_blank" class="service-link">
+            <div class="workbox service" data-url="https://jelly.baiu.cloud">
+                <div class="icon">
+                    <img src="images/design.svg" alt="">
+                </div>
+                <div class="desc">
+                    <h3>Jellyfin</h3>
+                    <p>Status: <span class="status">Checking...</span></p>
+                </div>
+            </div>
+        </a>
+
+        <a href="https://jelly.baiu.cloud" target="_blank" class="service-link">
+            <div class="workbox service" data-url="https://pihole.baiu.cloud">
+                <div class="icon">
+                    <img src="images/design.svg" alt="">
+                </div>
+                <div class="desc">
+                    <h3>Pi-Hole</h3>
+                    <p>Status: <span class="status">Checking...</span></p>
+                </div>
+            </div>
+        </a>
+
+            <a href="index.html" target="_blank">
+                <button class="button backdash-btn">
+                    <i class="fa fa-arrow-left"></i> Back</button>
+            </a>
+
+          </div>
+       </div>
+   </div>
+
+   <!---typed js for typing text effect-->
+   <script>
+        async function checkService(serviceBox) {
+            const url = serviceBox.getAttribute("data-url");
+            const statusSpan = serviceBox.querySelector(".status");
+            try {
+                await fetch(url, { mode: "no-cors" });
+                    statusSpan.textContent = "🟢 Online";
+                    statusSpan.style.color = "#00ffcc";
+                } catch {
+                    statusSpan.textContent = "🔴 Offline";
+                    statusSpan.style.color = "#ff4444";
+                }
+            }
+
+        document.querySelectorAll(".service").forEach(serviceBox => {
+        checkService(serviceBox);
+        setInterval(() => checkService(serviceBox), 30000);
+        });
+  </script>
+
+</body>
+</html>

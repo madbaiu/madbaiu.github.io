@@ -67,14 +67,13 @@
                <a href="https://drive.google.com/file/d/1jl0KY2teYcyc_MFcz6WV3Y3WGqEFpK1r/view?usp=sharing" target="_blank">
                   <button class="button download-btn"><i class="fa fa-download"></i> Download CV</button>
                </a>
-               <a href="https://casa.baiu.cloud" target="_blank">
-                  <button class="button homelab-btn"><i class="fa fa-terminal"></i> Homelab</button>
+               <a href="dashboard.html" target="_blank">
+                  <button class="button homelab-btn"><i class="fa fa-gauge"></i> Dashboard</button>
                </a>
             </div>
-            <div class="status-box">
-  <span id="status-text">Checking...</span>
-</div>
-
+            <!-- <div class="status-box">
+               <span id="status-text">Checking...</span>
+            </div> -->
        </div>
 
        <!----about section ----->
@@ -146,22 +145,22 @@
       })
    </script>
    <script>
-async function checkStatus() {
-  const box = document.querySelector(".status-box");
-  try {
-    await fetch("https://baiu.cloud", { mode: "no-cors" });
-    box.textContent = "ONLINE";
-    box.classList.remove("offline");
-    box.classList.add("online");
-  } catch {
-    box.textContent = "OFFLINE";
-    box.classList.remove("online");
-    box.classList.add("offline");
-  }
-}
-checkStatus();
-setInterval(checkStatus, 30000); // refresh every 30s
-</script>
+      async function checkStatus() {
+         const box = document.querySelector(".status-box");
+            try {
+               await fetch("https://baiu.cloud", { mode: "no-cors" });
+               box.textContent = "ONLINE";
+               box.classList.remove("offline");
+               box.classList.add("online");
+            } catch {
+               box.textContent = "OFFLINE";
+               box.classList.remove("online");
+               box.classList.add("offline");
+            }
+      }
+      checkStatus();
+      setInterval(checkStatus, 30000); // refresh every 30s
+   </script>
 
 </body>
 </html>
