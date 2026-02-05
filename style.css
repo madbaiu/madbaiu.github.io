@@ -304,6 +304,12 @@ body{
     grid-template-rows: auto;
 }
 
+.back-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 0px;
+}
+
 .work .workbox{
     display: flex;
     justify-content: space-between;
