@@ -3,16 +3,27 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Birthday Pacallkuuu ❤️🎂</title>
+<title>Happy Birthday Caayaang 💚❤️</title>
 
 <style>
 body {
   margin: 0;
   font-family: 'Georgia', serif;
-  background: linear-gradient(180deg, #fff0f5, #ffe6f0);
-  color: #444;
+  background: linear-gradient(180deg, #E2ECE3, #D3E2D6);
+  color: #2F4F3A;
   text-align: center;
   overflow-x: hidden;
+}
+
+/* Soft paper texture overlay */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(rgba(0,0,0,0.03) 1px, transparent 1px);
+  background-size: 4px 4px;
+  opacity: 0.3;
+  pointer-events: none;
 }
 
 /* Sections */
@@ -23,6 +34,8 @@ body {
   opacity: 0;
   transform: translateY(40px);
   transition: all 1.2s ease;
+  position: relative;
+  z-index: 1;
 }
 
 .section.show {
@@ -36,17 +49,24 @@ body {
   height: 140px;
   object-fit: cover;
   border-radius: 50%;
-  border: 6px solid #ff4d88;
+  border: 6px solid #5E8C61;
   margin-bottom: 1rem;
 }
 
-h1 { color: #ff4d88; margin-bottom: 0.3rem; }
-h2 { font-weight: normal; margin-top: 0; }
+h1 { 
+  color: #2F4F3A; 
+  margin-bottom: 0.3rem; 
+}
+
+h2 { 
+  font-weight: normal; 
+  margin-top: 0; 
+}
 
 .counter {
   margin-top: 0.5rem;
   font-size: 0.95rem;
-  color: #ff4d88;
+  color: #5E8C61;
   font-weight: bold;
 }
 
@@ -54,7 +74,7 @@ h2 { font-weight: normal; margin-top: 0; }
   margin: 2rem auto;
   width: 80px;
   height: 2px;
-  background: #ffb6c1;
+  background: #A7C4A0;
 }
 
 .message {
@@ -63,7 +83,7 @@ h2 { font-weight: normal; margin-top: 0; }
   margin-top: 1rem;
 }
 
-/* Pinterest Masonry */
+/* Masonry */
 .gallery {
   column-count: 4;
   column-gap: 1.5rem;
@@ -74,7 +94,7 @@ h2 { font-weight: normal; margin-top: 0; }
   width: 100%;
   margin-bottom: 1.5rem;
   border-radius: 20px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
   cursor: pointer;
   opacity: 0;
   transform: translateY(40px);
@@ -88,7 +108,7 @@ h2 { font-weight: normal; margin-top: 0; }
 }
 
 .gallery img:hover {
-  transform: scale(1.03);
+  transform: scale(1.02);
 }
 
 @media (max-width: 1100px) {
@@ -109,7 +129,7 @@ h2 { font-weight: normal; margin-top: 0; }
   position: fixed;
   inset: 0;
   background: rgba(0,0,0,0.85);
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(6px);
   justify-content: center;
   align-items: center;
   z-index: 999;
@@ -119,7 +139,6 @@ h2 { font-weight: normal; margin-top: 0; }
   max-width: 90%;
   max-height: 85%;
   border-radius: 20px;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.4);
 }
 
 .close-btn {
@@ -131,13 +150,13 @@ h2 { font-weight: normal; margin-top: 0; }
   cursor: pointer;
 }
 
-/* Floating hearts */
-.floating-heart {
+/* Floating elements */
+.floating-leaf {
   position: fixed;
-  color: #ffb6c1;
-  animation: floatUp 8s linear infinite;
+  color: #5E8C61;
+  animation: floatUp 12s linear infinite;
   font-size: 1.2rem;
-  opacity: 0.4;
+  opacity: 0.35;
   z-index: 0;
 }
 
@@ -149,23 +168,22 @@ h2 { font-weight: normal; margin-top: 0; }
 .footer {
   margin-top: 3rem;
   font-style: italic;
-  color: #777;
 }
 </style>
 </head>
 
 <body>
 
-<div class="floating-heart" style="left:15%">💗</div>
-<div class="floating-heart" style="left:40%; animation-delay:3s;">💕</div>
-<div class="floating-heart" style="left:70%; animation-delay:5s;">💖</div>
+<div class="floating-leaf" style="left:15%">🍃</div>
+<div class="floating-leaf" style="left:40%; animation-delay:4s;">🍵</div>
+<div class="floating-leaf" style="left:70%; animation-delay:7s;">🌿</div>
 
 <div class="section">
   <div class="photo">
     <img src="/images/q.webp" alt="Qeysa">
   </div>
 
-  <h1>Happy Birthday, Calon Istliiikuu ❤️</h1>
+  <h1>Happy Birthday Calon Istliiikuu ❤️ 🍵</h1>
   <h2>Qeycaaa Tantiikk Gummushh Nyoy ✨</h2>
 
   <div class="counter" id="loveCounter"></div>
@@ -183,11 +201,11 @@ h2 { font-weight: normal; margin-top: 0; }
 </div>
 
 <div class="section">
-  <h2>Our Memories 💍</h2>
+  <h2>Our Memories 🍃</h2>
   <div class="gallery" id="gallery"></div>
 
   <div class="footer">
-    — Bayuu, (calonn cuamiii muuu) 🥰
+    — Bayuu, (calonn cuamiii muuu) 💚
   </div>
 </div>
 
@@ -227,7 +245,7 @@ const startDate = new Date("2025-07-05");
 const today = new Date();
 const diffDays = Math.floor((today - startDate) / (1000*60*60*24));
 document.getElementById("loveCounter").innerText =
-  "💕 July 5, 2025 — " + diffDays + " days and counting ✨";
+  "🍵 July 5, 2025 — " + diffDays + " days and counting 💚";
 
 // Scroll animation
 const observer = new IntersectionObserver(entries => {
@@ -250,12 +268,15 @@ modal.onclick = (e) => {
   if (e.target === modal) modal.style.display = "none";
 };
 
-// AUTO LOAD + SHUFFLE
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") modal.style.display = "none";
+});
+
+// Load + Shuffle
 async function loadImages() {
   try {
     const response = await fetch('/mem/');
     const text = await response.text();
-
     const parser = new DOMParser();
     const doc = parser.parseFromString(text, 'text/html');
     const links = Array.from(doc.querySelectorAll('a'));
@@ -264,7 +285,6 @@ async function loadImages() {
       .map(link => link.getAttribute('href'))
       .filter(href => href.match(/\.(jpg|jpeg|png|webp)$/i));
 
-    // Fisher-Yates shuffle
     for (let i = imageFiles.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [imageFiles[i], imageFiles[j]] = [imageFiles[j], imageFiles[i]];
@@ -275,6 +295,7 @@ async function loadImages() {
     imageFiles.forEach(file => {
       const img = document.createElement('img');
       img.src = '/mem/' + file;
+      img.loading = "lazy";
       gallery.appendChild(img);
 
       observer.observe(img);
