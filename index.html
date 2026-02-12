@@ -1,1 +1,167 @@
-success
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bayu Mahardika</title>
+    <link rel="icon" type="image/png" href="images/favi.png"/>
+    <!---external css ---->
+    <link rel="stylesheet" href="style.css">
+    <!---font awesome cdn for font icons---->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+</head>
+<body>
+   <div class="container">
+       <div class="profile-card"> 
+            <div class="profile-pic">
+                <img src="images/avatar.webp" alt="user avatar">
+            </div>
+
+            <div class="profile-details">
+                 <div class="intro">
+                    <h2>Bayu Mahardika</h2>
+                    <gelar>(S.Kom.)</gelar>
+                    <h4><span class="input"> </span></h4>
+                    <!-- <h4>UI/UX Designer</h4> -->
+                    <div class="social">
+                        <a href="https://instagram.com/masbaiu" target="_blank"><i class="fab fa-instagram" style="color:var(--instagram-color)"></i></a>
+                        <a href="https://x.com/madbaiu" target="_blank"><i class="fab fa-x-twitter"  style="color:var(--x-color)"></i></a>
+                        <a href="https://github.com/madbaiu" target="_blank"><i class="fab fa-github"  style="color:var(--github-color)"></i></a>
+                        <a href="https://linktr.ee/masbaiu" target="_blank"><i class="fa-solid fa-tree"  style="color:var(--linktree-color)"></i></a>
+                        <a href="https://linkedin.com/in/bmrd" target="_blank"><i class="fab fa-linkedin"  style="color:var(--linkedin-color)"></i></a>
+                    </div>
+                 </div>
+
+                 <div class="contact-info">
+                    <div class="row">
+                         <div class="icon">
+                            <a href="https://wa.me/6282234456370" target="_blank"><i class="fab fa-whatsapp"  style="color:var(--whatsapp-color)"></i></a>
+                         </div>
+                         <div class="content">
+                            <span>Phone</span>
+                            <h5>(+62) 822-3445-6370</h5>
+                         </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="icon">
+                           <a href="mailto:admin@baiu.cloud" target="_blank"><i class="fa fa-envelope-open"  style="color:var(--mail-color)"></i></a>
+                        </div>
+                        <div class="content">
+                           <span>Email</span>
+                           <h5>admin@baiu.cloud</h5>
+                        </div>
+                   </div>
+    
+                   <div class="row">
+                    <div class="icon">
+                       <i class="fa fa-location-dot"  style="color:var(--location-color)"></i>
+                    </div>
+                    <div class="content">
+                       <span>Location</span>
+                       <h5>East Kalimantan, Indonesia</h5>
+                    </div>
+                 </div>
+
+            </div>
+               <a href="https://drive.google.com/file/d/1EHX3Tiu35J4hMt_78H1u5no_ydn9teDr/view?usp=sharing" target="_blank">
+                  <button class="button download-btn"><i class="fa fa-download"></i> Download CV</button>
+               </a>
+               <a href="dashboard.html">
+                  <button class="button homelab-btn"><i class="fa fa-gauge"></i> Dashboard</button>
+               </a>
+            </div>
+            <!-- <div class="status-box">
+               <span id="status-text">Checking...</span>
+            </div> -->
+       </div>
+
+       <!----about section ----->
+       <div class="about">
+           <h1>About Me</h1>
+
+           <p> A person who likes things related to IT, automotive and other things that he likes.
+            Based on Indonesia, a recent graduate from one of the most credible universities in his city.
+            Likes to try new things and can adapt easily in his environment.
+          </p>
+
+          <p>
+            My main goal is to use my skills in everyday life and also to help the development of technology,
+            especially in the field of cybersecurity.
+          </p>
+          
+          <h2>What I Do ↴</h2>
+          <div class="work">
+             <div class="workbox">
+                 <div class="icon">
+                    <img src="images/ideas.svg" alt="">
+                 </div>
+                 <div class="desc">
+                    <h3>Network Engineer</h3>
+                    <p>My main focus, to be the best in this field.</p>
+                 </div>
+             </div>
+
+             <div class="workbox">
+                <div class="icon">
+                   <img src="images/wrench.svg" alt="">
+                </div>
+                <div class="desc">
+                   <h3>Automotive</h3>
+                   <p>I love everything that goes vroom vroom.</p>
+                </div>
+            </div>
+
+            <div class="workbox">
+                <div class="icon">
+                   <img src="images/design.svg" alt="">
+                </div>
+                <div class="desc">
+                   <h3>Editing & Design</h3>
+                   <p>Not much, just enough to know the basics.</p>
+                </div>
+            </div>
+
+            <div class="workbox">
+                <div class="icon">
+                   <img src="images/pentest.svg" alt="">
+                </div>
+                <div class="desc">
+                   <h3>Penetration Testing</h3>
+                   <p>Blue team or red team, who knows? ;-)</p>
+                </div>
+            </div>
+          </div>
+       </div>
+   </div>
+   <!---typed js for typing text effect-->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.10/typed.min.js"></script>
+   <script>
+      var typed=new Typed(".input",{
+          strings:[,"Network Engineer","Automotive Enthusiast","Penetration Tester"],
+          typedSpeed:55,
+          backSpeed:70,
+          loop:true
+      })
+   </script>
+   <script>
+      async function checkStatus() {
+         const box = document.querySelector(".status-box");
+            try {
+               await fetch("https://baiu.cloud", { mode: "no-cors" });
+               box.textContent = "ONLINE";
+               box.classList.remove("offline");
+               box.classList.add("online");
+            } catch {
+               box.textContent = "OFFLINE";
+               box.classList.remove("online");
+               box.classList.add("offline");
+            }
+      }
+      checkStatus();
+      setInterval(checkStatus, 30000); // refresh every 30s
+   </script>
+
+</body>
+</html>
