@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Birthday My Love ❤️🎂</title>
+<title>Happy Birthday Pacallkuuu ❤️🎂</title>
 
 <style>
 body {
@@ -40,15 +40,8 @@ body {
   margin-bottom: 1rem;
 }
 
-h1 {
-  color: #ff4d88;
-  margin-bottom: 0.3rem;
-}
-
-h2 {
-  font-weight: normal;
-  margin-top: 0;
-}
+h1 { color: #ff4d88; margin-bottom: 0.3rem; }
+h2 { font-weight: normal; margin-top: 0; }
 
 .counter {
   margin-top: 0.5rem;
@@ -70,7 +63,7 @@ h2 {
   margin-top: 1rem;
 }
 
-/* 💍 Gallery Grid Style */
+/* Gallery */
 .gallery {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -86,6 +79,7 @@ h2 {
   padding: 10px;
   border-radius: 20px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  cursor: pointer;
   opacity: 0;
   transform: translateY(40px);
   transition: all 1s ease;
@@ -99,6 +93,46 @@ h2 {
 .gallery img:hover {
   transform: scale(1.05);
   transition: 0.4s ease;
+}
+
+/* Popup Modal */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  backdrop-filter: blur(5px);
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  animation: fadeIn 0.4s ease;
+}
+
+.modal img {
+  max-width: 90%;
+  max-height: 85%;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+  animation: zoomIn 0.4s ease;
+}
+
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes zoomIn {
+  from { transform: scale(0.8); }
+  to { transform: scale(1); }
 }
 
 /* Footer */
@@ -123,11 +157,8 @@ h2 {
   to { transform: translateY(-10vh); }
 }
 
-/* Mobile tweak */
 @media (max-width: 500px) {
-  .gallery img {
-    height: 220px;
-  }
+  .gallery img { height: 220px; }
 }
 </style>
 </head>
@@ -144,25 +175,25 @@ h2 {
     <img src="/images/q.webp" alt="Qeysa">
   </div>
 
-  <h1>Happy Birthday, My Love ❤️</h1>
-  <h2>Qeysa Tantiiikkkk ✨</h2>
+  <h1>Happy Birthday, Calon Istliiikuu ❤️</h1>
+  <h2>Qeycaaa Tantiikk Gummushh Nyoy ✨</h2>
 
   <div class="counter" id="loveCounter"></div>
 
   <div class="divider"></div>
 
   <div class="message">
-    Selamat ulang tahun, cintakuuu 🥺<br><br>
-    Di umur yang sekarang, semoga kamu makin bahagia,
-    makin sukses, makin kuat, dan semua impian kamu tercapai.<br><br>
-    Terima kasih sudah hadir di hidup aku.
-    Kamu bukan cuma pacar aku —
-    kamu rumah, kamu tenang, kamu masa depan 💕
+    Selamat ulang tauun, cintakuuuu 🥺<br><br>
+    Di umur yang sekarang, semoga cayaaangg makin bahagiaaa yaaa,
+    maaakkiiin sukses, makiiin kuuaaaat, makinnn gummushh, makinnn ucuulll, dan semua impian cayaanggg tercapaiii. Amiiinnnnn<br><br>
+    Makaciiii yaa cayaaanggg sudah hadir di hidup aku.<br>
+    Makasiiii jugaa sudaaa bertahaann selamaa inii, dann untukk selamanyaaa.<br>
+    kamuuu cayaanggkuu, kamuuu ucuullkuuu, kamuu rumahkuu, kamuu tenangkuuu, kamuuu masa depankuuu 💕
   </div>
 </div>
 
 <div class="section">
-  <div class="divider"></div>
+  <!-- <div class="divider"></div> -->
   <h2>Our Memories 💍</h2>
 
   <div class="gallery">
@@ -173,8 +204,14 @@ h2 {
   </div>
 
   <div class="footer">
-    — Bayuu, always yours 🥰
+    — Bayuu, (calonn cuamiii muuu) anjayy 🥰
   </div>
+</div>
+
+<!-- Modal -->
+<div class="modal" id="imageModal">
+  <span class="close-btn" id="closeModal">&times;</span>
+  <img id="modalImage">
 </div>
 
 <!-- <script>
@@ -214,7 +251,7 @@ const today = new Date();
 const diffTime = today - startDate;
 const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
 document.getElementById("loveCounter").innerText =
-  "💕 Together since July 5, 2025 — " + diffDays + " days and counting ✨";
+  "💕 July 5, 2025 — " + diffDays + " days and counting ✨";
 
 // Fade In on Scroll
 const observer = new IntersectionObserver(entries => {
@@ -228,6 +265,23 @@ const observer = new IntersectionObserver(entries => {
 document.querySelectorAll(".section, .gallery img").forEach(el => {
   observer.observe(el);
 });
+
+// Modal functionality
+const modal = document.getElementById("imageModal");
+const modalImg = document.getElementById("modalImage");
+const closeBtn = document.getElementById("closeModal");
+
+document.querySelectorAll(".gallery img").forEach(img => {
+  img.addEventListener("click", () => {
+    modal.style.display = "flex";
+    modalImg.src = img.src;
+  });
+});
+
+closeBtn.onclick = () => modal.style.display = "none";
+modal.onclick = (e) => {
+  if (e.target === modal) modal.style.display = "none";
+};
 </script>
 
 </body>
