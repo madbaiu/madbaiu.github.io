@@ -130,6 +130,27 @@ h2 { font-weight: normal; margin-top: 0; }
   margin-top: 3rem;
   font-style: italic;
 }
+
+.wedding-countdown {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+  font-size: 1.8rem;
+  font-weight: bold;
+  background: linear-gradient(135deg, #5E8C61, #3F6F4A);
+  color: white;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+  display: inline-block;
+  letter-spacing: 1px;
+  animation: pulseGlow 2.5s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+  0% { box-shadow: 0 0 15px rgba(94,140,97,0.4); }
+  50% { box-shadow: 0 0 35px rgba(94,140,97,0.7); }
+  100% { box-shadow: 0 0 15px rgba(94,140,97,0.4); }
+}
+
 </style>
 </head>
 
@@ -145,15 +166,42 @@ h2 { font-weight: normal; margin-top: 0; }
 
   <div class="counter" id="loveCounter"></div>
 
+  <div class="wedding-countdown" id="weddingCountdown"></div>
+
   <div class="divider"></div>
 
   <div class="message">
     Selamat ulang tauun, cintakuuuu 🥺<br><br>
     Di umur yang sekarang, semoga cayaaangg makin bahagiaaa yaaa,
     maaakkiiin sukses, makiiin kuuaaaat, makinnn gummushh, makinnn ucuulll, dan semua impian cayaanggg tercapaiii. Amiiinnnnn<br><br>
+
+    caaaayaangggg 🥺🤍<br>
+
+    akuu tuh kadang masih suka mikir sendiriii<br>
+    kok bisaaa yaa kitaaa sampaiiii sedekeet iniii? sejauuuh iniii? selamaaa iniii?<br><br>
+
+    dariii yaang cumaa chaat biaasa, jadiii yang tiiap hariii gaa bisaaa tanpaa kabar<br>
+    darii yang cumaaa “kamu siaapa”, sekarang jadiii “kamuu rumah akuu”<br><br>
+
+    akuuu juga bener-bener gaa nyangkaaa...<br>
+    di antaraa banyak banget kemungkinan di dunia iniii<br>
+    yang jadii pasangan akuuu itu kamuuu<br>
+    perempuan secantiiik, sebaiiik, selembut, segummuushh kamuuu<br><br>
+
+    makasih ya caaayyaaang udaah stay<br>
+    udaah sabaaar samaaa akuuu<br>
+    udaah nerimaaa akuu apa adanyaaa<br><br>
+
+    akuu banggaa bangett punyaaa kamuuu<br>
+    dan tiappp harii akuuu selaluuu bersyukur… karenaaa yang adaa diii samping akuuu ituu kamuuu 💕<br><br>
+
+    peeeeyyyuuuuukkkkk dullluuuuu ccciiinnniiiii 🤍<br><br>
+
     Makaciiii yaa cayaaanggg sudah hadir di hidup aku.<br>
     Makasiiii jugaa sudaaa bertahaann selamaa inii, dann untukk selamanyaaa.<br>
-    kamuuu cayaanggkuu, kamuuu ucuullkuuu, kamuu rumahkuu, kamuu tenangkuuu, kamuuu masa depankuuu 💕
+    kamuuu cayaanggkuu, kamuuu ucuullkuuu, kamuu rumahkuu, kamuu tenangkuuu, kamuuu masa depankuuu 💕<br><br>
+
+    Wwwwooopppyyyyuuuuuuu Sayaaaaaanggggggggg 🤍💕💚🥰😘❤️💚🖤💕
   </div>
 </div>
 
@@ -162,7 +210,8 @@ h2 { font-weight: normal; margin-top: 0; }
   <div class="gallery" id="gallery"></div>
 
   <div class="footer">
-    — Bayuu, (calonn cuamiii muuu) 💚
+    Made with love — Bayuu, (calonn cuamiii muuu) 💚<br>
+    mumumumumumumumumumumumumumumumumumumumumu
   </div>
 </div>
 
@@ -203,6 +252,35 @@ const today = new Date();
 const diffDays = Math.floor((today - startDate) / (1000*60*60*24));
 document.getElementById("loveCounter").innerText =
   "🍵 July 5, 2025 — " + diffDays + " days and counting 💚";
+
+// Wedding Countdown
+const weddingDate = new Date("2026-05-17T00:00:00");
+
+function updateWeddingCountdown() {
+  const now = new Date();
+  const diff = weddingDate - now;
+
+  if (diff <= 0) {
+    document.getElementById("weddingCountdown").innerText =
+      "💍 Today is our wedding day. I love you endlessly. 💚";
+    return;
+  }
+
+  const days = Math.floor(diff / (1000*60*60*24));
+  const hours = Math.floor((diff / (1000*60*60)) % 24);
+  const minutes = Math.floor((diff / (1000*60)) % 60);
+  const seconds = Math.floor((diff / 1000) % 60);
+
+  document.getElementById("weddingCountdown").innerHTML =
+  "💍 17 May 2026 💍<br>" +
+  "💚 " + days + " Days • " +
+  hours + " Hours • " +
+  minutes + " Minutes • " +
+  seconds + " Seconds 💚";
+}
+
+updateWeddingCountdown();
+setInterval(updateWeddingCountdown, 1000);
 
 // Modal
 const modal = document.getElementById("imageModal");
