@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bayu & Qeysa - Countdown</title>
+
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: linear-gradient(135deg, #6B8E6E, #A8C3A0);
+    color: #2f3e2f;
+
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    text-align: center;
+    padding: 1rem;
+    overflow: hidden;
+}
+
+/* FLOATING LEAVES */
+.leaf {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: rgba(255,255,255,0.3);
+    border-radius: 50% 0 50% 50%;
+    transform: rotate(45deg);
+    animation: float 10s linear infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(100vh) rotate(45deg); opacity: 0; }
+    20% { opacity: .6; }
+    100% { transform: translateY(-10vh) rotate(45deg); opacity: 0; }
+}
+
+.container {
+    width: min(460px, 100%);
+    padding: 1.6rem;
+    border-radius: 18px;
+
+    backdrop-filter: blur(12px);
+    background: rgba(255,255,255,0.25);
+    border: 1px solid rgba(255,255,255,0.4);
+}
+
+/* TITLE */
+h1 {
+    font-size: clamp(1.6rem, 5vw, 2.2rem);
+    margin-bottom: .3rem;
+}
+
+.names {
+    font-size: 1.1rem;
+    color: #4f6b4f;
+    margin-bottom: 1rem;
+}
+
+.target {
+    margin-bottom: 1.2rem;
+    font-size: .95rem;
+    color: #5f7d5f;
+}
+
+.countdown {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: .8rem;
+    margin-bottom: 1rem;
+}
+
+.tile {
+    background: rgba(255,255,255,0.35);
+    border: 1px solid rgba(255,255,255,0.5);
+    border-radius: 12px;
+
+    padding: .8rem .6rem;
+    min-height: 80px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.value {
+    font-size: clamp(1.4rem, 5vw, 2rem);
+    font-weight: 700;
+}
+
+.label {
+    font-size: .8rem;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    margin-top: .2rem;
+    color: #5f7d5f;
+}
+
+/* ROTATING MESSAGE */
+.message {
+    font-size: 0.95rem;
+    margin-top: .8rem;
+    color: #6a4e2f;
+    min-height: 1.5em;
+    transition: opacity .5s;
+}
+
+.footer {
+    margin-top: 1.2rem;
+    font-size: 0.85rem;
+    color: #4f6b4f;
+    line-height: 1.4;
+}
+
+.footer .cute {
+    color: #2f3e2f;
+    font-weight: 500;
+}
+
+.footer .tiny {
+    display: block;
+    margin-top: .3rem;
+    font-size: 0.7rem;
+    opacity: 0.7;
+    letter-spacing: 0.08em;
+}
+
+@media (max-width: 420px) {
+    .countdown { grid-template-columns: repeat(2, 1fr); }
+}
+</style>
+</head>
+
+<body>
+
+<!-- LEAVES -->
+<div class="leaf" style="left:10%; animation-delay:0s;"></div>
+<div class="leaf" style="left:30%; animation-delay:3s;"></div>
+<div class="leaf" style="left:60%; animation-delay:6s;"></div>
+<div class="leaf" style="left:80%; animation-delay:1.5s;"></div>
+
+<main class="container">
+    <h1>💍Our Days💍</h1>
+    <div class="names">Bayu & Qeysa</div>
+    <p class="target">17 May 2026</p>
+
+    <div class="countdown">
+        <div class="tile"><span class="value" id="days">0</span><span class="label">days</span></div>
+        <div class="tile"><span class="value" id="hours">0</span><span class="label">hours</span></div>
+        <div class="tile"><span class="value" id="minutes">0</span><span class="label">minutes</span></div>
+        <div class="tile"><span class="value" id="seconds">0</span><span class="label">seconds</span></div>
+    </div>
+
+    <p class="message" id="message"></p>
+
+    <footer class="footer">
+        Made with love — Bayuu, <span class="cute">(calonn cuamiii muuu) 💚</span><br>
+        <span class="tiny">mumumumumumumumumumumumumumumumumumumumumu</span>
+    </footer>
+
+</main>
+
+<script>
+const target = new Date("2026-05-17T00:00:00");
+
+const daysEl = document.getElementById("days");
+const hoursEl = document.getElementById("hours");
+const minutesEl = document.getElementById("minutes");
+const secondsEl = document.getElementById("seconds");
+const messageEl = document.getElementById("message");
+
+/* ROMANTIC ROTATION */
+const messages = [
+    "Counting down to forever 💚",
+    "Every day closer to us.",
+    "Built with love, patience, and a little chaos.",
+    "You + Me = Home",
+    "This is just the beginning.",
+];
+
+let msgIndex = 0;
+
+function rotateMessage() {
+    messageEl.style.opacity = 0;
+    setTimeout(() => {
+        messageEl.textContent = messages[msgIndex];
+        messageEl.style.opacity = 1;
+        msgIndex = (msgIndex + 1) % messages.length;
+    }, 400);
+}
+
+setInterval(rotateMessage, 4000);
+rotateMessage();
+
+/* COUNTDOWN */
+function updateCountdown() {
+    const now = new Date();
+    const diff = target - now;
+
+    if (diff <= 0) {
+        daysEl.textContent = "0";
+        hoursEl.textContent = "0";
+        minutesEl.textContent = "0";
+        secondsEl.textContent = "0";
+        messageEl.textContent = "💍 It's your wedding day!";
+        return;
+    }
+
+    const sec = Math.floor(diff / 1000) % 60;
+    const min = Math.floor(diff / (1000 * 60)) % 60;
+    const hrs = Math.floor(diff / (1000 * 60 * 60)) % 24;
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+
+    daysEl.textContent = days;
+    hoursEl.textContent = String(hrs).padStart(2, "0");
+    minutesEl.textContent = String(min).padStart(2, "0");
+    secondsEl.textContent = String(sec).padStart(2, "0");
+}
+
+updateCountdown();
+setInterval(updateCountdown, 1000);
+</script>
+
+</body>
+</html>
