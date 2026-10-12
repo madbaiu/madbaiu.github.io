@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bayu Mahardika, S.Kom. — Network Engineer</title>
+  <meta name="description" content="Bayu Mahardika, S.Kom. — Network Engineer focused on cybersecurity, based in East Kalimantan, Indonesia.">
+  <meta name="theme-color" content="#0a0c11">
+  <meta property="og:title" content="Bayu Mahardika — Network Engineer">
+  <meta property="og:description" content="Network engineer focused on cybersecurity and self-hosted infrastructure.">
+  <link rel="icon" type="image/png" href="images/favi.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="page">
+    <div class="top">
+      <span class="brand">bayu.</span>
+      <nav>
+        <a class="link" href="#about">About</a>
+        <a class="link" href="#skills">Skills</a>
+        <a class="link" href="dashboard.html">Homelab</a>
+      </nav>
+    </div>
+
+    <header class="hero fade">
+      <div class="avatar"><img src="images/avatar.webp" alt="Portrait of Bayu Mahardika" width="124" height="124"></div>
+      <span class="badge"><i></i> Open to opportunities</span>
+      <h1>Bayu <span>Mahardika</span></h1>
+      <p class="sub">S.Kom. · East Kalimantan, Indonesia</p>
+      <p class="role"><span id="typed">Network Engineer</span><span class="caret"></span></p>
+      <p class="lead">Building reliable, secure networks, and running my own infrastructure to keep learning.</p>
+
+      <div class="actions">
+        <a class="btn primary" href="https://drive.google.com/file/d/1Lcb6SvvW6SF8uPeZjwjHKCiRKQSaR2CE/view?usp=sharing" target="_blank" rel="noopener"><i class="fa fa-download"></i> Download CV</a>
+        <a class="btn" href="mailto:bmrd.works@gmail.com"><i class="fa fa-envelope"></i> Email me</a>
+      </div>
+      <div class="socials">
+        <a href="https://linkedin.com/in/bmrd" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://github.com/madbaiu" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://wa.me/6282234456370" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://x.com/madbaiu" target="_blank" rel="noopener" aria-label="X"><i class="fab fa-x-twitter"></i></a>
+        <a href="https://instagram.com/masbaiu" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      </div>
+
+      <div class="stats">
+        <div class="stat"><b>14</b><span>Self-hosted services</span></div>
+        <div class="stat"><b>S.Kom.</b><span>Computer Science</span></div>
+      </div>
+    </header>
+
+    <section id="about">
+      <p class="eyebrow">// about</p>
+      <h2>Curious by default, hands-on by habit.</h2>
+      <p>
+        Recent graduate from one of the most credible universities in my city. I enjoy IT,
+        cars and learning by doing, and I adapt quickly to new environments. My goal is to
+        put my skills to work every day and help technology move forward, especially in
+        cybersecurity.
+      </p>
+    </section>
+
+    <section id="skills">
+      <p class="eyebrow">// what I do</p>
+      <h2>Where I spend my time</h2>
+      <div class="list">
+        <div class="item main"><div class="ico"><img src="images/ideas.svg" alt=""></div><div><h3>Network Engineering<span class="tag">Focus</span></h3><p>Designing, running and troubleshooting networks.</p></div></div>
+        <div class="item"><div class="ico"><img src="images/pentest.svg" alt=""></div><div><h3>Penetration Testing</h3><p>Learning to think like an attacker to defend better.</p></div></div>
+        <div class="item"><div class="ico"><img src="images/design.svg" alt=""></div><div><h3>Editing &amp; Design</h3><p>The fundamentals, with clean results.</p></div></div>
+        <div class="item"><div class="ico"><img src="images/wrench.svg" alt=""></div><div><h3>Automotive</h3><p>Anything that goes vroom vroom.</p></div></div>
+      </div>
+      <div class="chips" aria-label="Tools and technologies">
+        <span>Networking</span><span>Cybersecurity</span><span>Linux</span><span>Docker</span>
+        <span>Cloudflare Tunnel</span><span>Pi-hole / DNS</span><span>n8n</span>
+      </div>
+    </section>
+
+    <section>
+      <div class="callout">
+        <p class="eyebrow">// homelab</p>
+        <h2>I run my own infrastructure.</h2>
+        <p>A self-hosted server with Nextcloud, Jellyfin, Pi-hole, n8n and more, exposed through Cloudflare Tunnel.</p>
+        <div class="actions"><a class="btn primary" href="dashboard.html"><i class="fa fa-gauge"></i> View live status</a></div>
+      </div>
+    </section>
+
+    <footer>© <span id="year"></span> Bayu Mahardika</footer>
+  </main>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Rotating role (no effect when reduced motion is on)
+    (function () {
+      var el = document.getElementById("typed");
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+      var words = ["Network Engineer", "Penetration Tester", "Automotive Enthusiast"];
+      var w = 0, c = words[0].length, del = true;
+      function tick() {
+        var word = words[w], delay = del ? 45 : 85;
+        el.textContent = word.slice(0, c);
+        if (del && c === 0) { del = false; w = (w + 1) % words.length; delay = 300; }
+        else if (!del && c === words[w].length) { del = true; delay = 1700; }
+        c += del ? -1 : 1;
+        if (c < 0) c = 0;
+        setTimeout(tick, delay);
+      }
+      setTimeout(tick, 1700);
+    })();
+  </script>
+</body>
+</html>

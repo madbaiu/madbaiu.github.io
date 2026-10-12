@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Homelab — Bayu Mahardika</title>
+  <meta name="theme-color" content="#0b0d12">
+  <link rel="icon" type="image/png" href="images/favi.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="page">
+    <div class="top">
+      <a class="link" href="index.html"><i class="fa fa-arrow-left"></i> Back</a>
+      <span class="brand">bayu.</span>
+    </div>
+
+    <h1 style="font-size:1.8rem;letter-spacing:-0.02em">Homelab</h1>
+    <p style="color:var(--muted);margin-top:.3rem">Live status of my self-hosted services. Tap one to open it.</p>
+    <div class="status-bar" id="summary" role="status"><span class="dot"></span><span id="summaryText">Checking…</span></div>
+
+    <div class="services" id="services"></div>
+  </main>
+
+  <script>
+    var DOMAIN = "baiu.online";
+    var SERVICES = [
+      { name: "CasaOS",      sub: "Server manager",   host: "casa",    icon: "casaos.svg" },
+      { name: "Nextcloud",   sub: "Files & sync",     host: "nc",      icon: "nextcloud.svg" },
+      { name: "Jellyfin",    sub: "Media server",     host: "jelly",   icon: "jellyfin.svg" },
+      { name: "Immich",      sub: "Photos",           host: "gallery", icon: "immich.svg" },
+      { name: "n8n",         sub: "Automation",       host: "n8n",     icon: "n8n.svg" },
+      { name: "Pi-hole",     sub: "DNS filter",       host: "pihole",  icon: "pihole.svg" },
+      { name: "Uptime Kuma", sub: "Monitoring",       host: "kuma",    icon: "kuma.svg" },
+      { name: "MySpeed",     sub: "Speed tests",      host: "speed",   icon: "myspeed.svg" },
+      { name: "Repository",  sub: "Package mirror",   host: "repo",    icon: "network.svg" },
+      { name: "qBittorrent", sub: "Downloads",        host: "torrent", icon: "qbittorrent.svg" },
+      { name: "Radarr",      sub: "Movies",           host: "radarr",  icon: "radarr.svg" },
+      { name: "Sonarr",      sub: "TV",               host: "sonarr",  icon: "sonarr.svg" },
+      { name: "Bazarr",      sub: "Subtitles",        host: "bazarr",  icon: "bazarr.svg" },
+      { name: "OSKT",        sub: "Self-hosted app",  host: "oskt",    icon: "ost.svg" }
+    ];
+
+    var grid = document.getElementById("services");
+    var summary = document.getElementById("summary");
+    var summaryText = document.getElementById("summaryText");
+    var state = {};
+
+    SERVICES.forEach(function (s) {
+      s.url = "https://" + s.host + "." + DOMAIN;
+      var a = document.createElement("a");
+      a.className = "service";
+      a.href = s.url; a.target = "_blank"; a.rel = "noopener";
+      a.innerHTML =
+        '<div class="ico"><img src="images/' + s.icon + '" alt="" loading="lazy"></div>' +
+        '<div class="name">' + s.name + '<small>' + s.sub + '</small></div>' +
+        '<span class="state">Checking</span>';
+      grid.appendChild(a);
+      s.el = a.querySelector(".state");
+    });
+
+    function render() {
+      var up = 0, done = 0;
+      SERVICES.forEach(function (s) {
+        if (state[s.host] !== undefined) done++;
+        if (state[s.host] === true) up++;
+      });
+      if (done < SERVICES.length) { summaryText.textContent = "Checking…"; return; }
+      summaryText.textContent = up + " of " + SERVICES.length + " online";
+      summary.className = "status-bar " + (up === SERVICES.length ? "good" : "warn");
+    }
+
+    // no-cors gives an opaque response: this detects "reachable", not the HTTP status.
+    function check(s) {
+      var ctrl = new AbortController();
+      var timer = setTimeout(function () { ctrl.abort(); }, 6000);
+      fetch(s.url, { mode: "no-cors", cache: "no-store", signal: ctrl.signal })
+        .then(function () { s.el.className = "state online"; s.el.textContent = "Online"; state[s.host] = true; })
+        .catch(function () { s.el.className = "state offline"; s.el.textContent = "Offline"; state[s.host] = false; })
+        .finally(function () { clearTimeout(timer); render(); });
+    }
+
+    function checkAll() { SERVICES.forEach(check); }
+    checkAll();
+    setInterval(checkAll, 30000);
+  </script>
+</body>
+</html>
