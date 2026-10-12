@@ -134,14 +134,16 @@ h2 { font-weight: normal; margin-top: 0; }
 .wedding-countdown {
   margin-top: 1.5rem;
   padding: 1.5rem;
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   font-weight: bold;
   background: linear-gradient(135deg, #5E8C61, #3F6F4A);
   color: white;
   border-radius: 20px;
   box-shadow: 0 15px 35px rgba(0,0,0,0.15);
   display: inline-block;
+  max-width: 100%;
   letter-spacing: 1px;
+  line-height: 1.6;
   animation: pulseGlow 2.5s ease-in-out infinite;
 }
 
@@ -149,6 +151,10 @@ h2 { font-weight: normal; margin-top: 0; }
   0% { box-shadow: 0 0 15px rgba(94,140,97,0.4); }
   50% { box-shadow: 0 0 35px rgba(94,140,97,0.7); }
   100% { box-shadow: 0 0 15px rgba(94,140,97,0.4); }
+}
+
+@media (max-width: 500px) {
+  .wedding-countdown { font-size: 1.15rem; padding: 1.2rem; }
 }
 
 </style>
@@ -161,7 +167,7 @@ h2 { font-weight: normal; margin-top: 0; }
     <img src="/images/q.webp" alt="Qeysa">
   </div>
 
-  <h1>Happy Birthday Calon Istliiikuu ❤️ 🍵</h1>
+  <h1>Happy Birthday Istliiikuu ❤️ 🍵</h1>
   <h2>Qeycaaa Tantiikk Gummushh Nyoy ✨</h2>
 
   <div class="counter" id="loveCounter"></div>
@@ -201,7 +207,7 @@ h2 { font-weight: normal; margin-top: 0; }
     Makasiiii jugaa sudaaa bertahaann selamaa inii, dann untukk selamanyaaa.<br>
     kamuuu cayaanggkuu, kamuuu ucuullkuuu, kamuu rumahkuu, kamuu tenangkuuu, kamuuu masa depankuuu 💕<br><br>
 
-    Wwwwooopppyyyyuuuuuuu Sayaaaaaanggggggggg 🤍💕💚🥰😘❤️💚🖤💕
+    Wwwwooopppyyyyuuuuuuu Sayaaaaaanggggggg 🤍💕💚🥰😘❤️💚🖤💕
   </div>
 </div>
 
@@ -210,7 +216,7 @@ h2 { font-weight: normal; margin-top: 0; }
   <div class="gallery" id="gallery"></div>
 
   <div class="footer">
-    Made with love — Bayuu, (calonn cuamiii muuu) 💚<br>
+    Made with love — Bayuu, (cuamiii muuu) 💚<br>
     mumumumumumumumumumumumumumumumumumumumumu
   </div>
 </div>
@@ -231,7 +237,7 @@ h2 { font-weight: normal; margin-top: 0; }
   alert("semakin bertambah usia cayaangg semoga cayaangg semakin sukses dan bahagia selalu yaa");
   alert("semoga semua keinginan cayaangg juga bisa tercapai");
   alert("harus selalu jaga kesehatan ya cayaaangg");
-  alert("kann bentarr lagii mo nikah hehe");
+  alert("kann udah nikah hehe");
   alert("makannya juga jangan telat telat yaa");
   alert("ibadahnya juga jangan sampe di tinggalin");
   alert("makannn yg banyakkk jugaaa jangann dikitt telluuss");
@@ -246,41 +252,50 @@ h2 { font-weight: normal; margin-top: 0; }
 </script> -->
 
 <script>
-// Relationship Counter
+// Relationship Counter (since we got together)
 const startDate = new Date("2025-07-05");
 const today = new Date();
 const diffDays = Math.floor((today - startDate) / (1000*60*60*24));
 document.getElementById("loveCounter").innerText =
   "🍵 July 5, 2025 — " + diffDays + " days and counting 💚";
 
-// Wedding Countdown
-const weddingDate = new Date("2026-05-17T00:00:00");
+// Married-since counter (wedding: 17 May 2026, WITA)
+const WEDDING = new Date("2026-05-17T00:00:00+08:00");
+const SHIFT = 8 * 60 * 60 * 1000;
 
-function updateWeddingCountdown() {
-  const now = new Date();
-  const diff = weddingDate - now;
+function elapsed(from, to) {
+  const a = new Date(from.getTime() + SHIFT);
+  const b = new Date(to.getTime() + SHIFT);
+  const anchorFor = m => new Date(Date.UTC(a.getUTCFullYear(), a.getUTCMonth() + m, a.getUTCDate(),
+    a.getUTCHours(), a.getUTCMinutes(), a.getUTCSeconds()));
 
-  if (diff <= 0) {
-    document.getElementById("weddingCountdown").innerText =
-      "💍 Today is our wedding day. I love you endlessly. 💚";
-    return;
-  }
+  let months = (b.getUTCFullYear() - a.getUTCFullYear()) * 12 + (b.getUTCMonth() - a.getUTCMonth());
+  let anchor = anchorFor(months);
+  if (anchor > b) { months -= 1; anchor = anchorFor(months); }
 
-  const days = Math.floor(diff / (1000*60*60*24));
-  const hours = Math.floor((diff / (1000*60*60)) % 24);
-  const minutes = Math.floor((diff / (1000*60)) % 60);
-  const seconds = Math.floor((diff / 1000) % 60);
-
-  document.getElementById("weddingCountdown").innerHTML =
-  "💍 17 May 2026 💍<br>" +
-  "💚 " + days + " Days • " +
-  hours + " Hours • " +
-  minutes + " Minutes • " +
-  seconds + " Seconds 💚";
+  let rest = Math.floor((b - anchor) / 1000);
+  const days = Math.floor(rest / 86400); rest -= days * 86400;
+  const hours = Math.floor(rest / 3600); rest -= hours * 3600;
+  const minutes = Math.floor(rest / 60);
+  const seconds = rest - minutes * 60;
+  return { months, days, hours, minutes, seconds };
 }
 
-updateWeddingCountdown();
-setInterval(updateWeddingCountdown, 1000);
+function updateMarriedCounter() {
+  const now = new Date();
+  const box = document.getElementById("weddingCountdown");
+
+  if (now < WEDDING) { box.innerHTML = "💍 17 May 2026 💍"; return; }
+
+  const t = elapsed(WEDDING, now);
+  box.innerHTML =
+    "💍 Married since 17 May 2026 💍<br>" +
+    "💚 " + t.months + " Months • " + t.days + " Days<br>" +
+    t.hours + " Hours • " + t.minutes + " Minutes • " + t.seconds + " Seconds 💚";
+}
+
+updateMarriedCounter();
+setInterval(updateMarriedCounter, 1000);
 
 // Modal
 const modal = document.getElementById("imageModal");
