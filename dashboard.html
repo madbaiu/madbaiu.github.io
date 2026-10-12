@@ -1,277 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard - Bayu Mahardika</title>
-    <link rel="icon" type="image/png" href="images/favi.png"/>
-    <!---external css ---->
-    <link rel="stylesheet" href="style.css">
-    <!---font awesome cdn for font icons---->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Homelab Dashboard — Bayu Mahardika</title>
+  <meta name="theme-color" content="#0a0c10">
+  <link rel="icon" type="image/png" href="images/favi.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-   <div class="container">
-       <!----about section ----->
-       <div class="about-homelab">
-           <h1>Homelab Dashboard</h1>
+  <header class="nav">
+    <div class="wrap">
+      <a href="index.html" class="brand"><span class="dot"></span>bayu.</a>
+      <nav aria-label="Primary">
+        <ul>
+          <li><a href="index.html"><i class="fa fa-arrow-left"></i> Back to portfolio</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-          <p>
-            Status of my self-hosted apps :
-          </p>
-          
-          <div class="work">
-
-             <!-- <div class="workbox service" data-url="https://casa.baiu.cloud">
-                 <div class="icon">
-                    <img src="images/network.svg" alt="">
-                 </div>
-                 <div class="desc">
-                    <h3>CasaOS</h3>
-                    <p>Status: <span class="status">Checking...</span></p>
-                 </div>
-             </div>
-
-             <div class="workbox service" data-url="https://nc.baiu.cloud">
-                <div class="icon">
-                   <img src="images/wrench.svg" alt="">
-                </div>
-                <div class="desc">
-                   <h3>Nextcloud</h3>
-                   <p>Status: <span class="status">Checking...</span></p>
-                </div>
-            </div>
-
-            <div class="workbox service" data-url="https://jelly.baiu.cloud">
-                <div class="icon">
-                   <img src="images/design.svg" alt="">
-                </div>
-                <div class="desc">
-                   <h3>Jellyfin</h3>
-                   <p>Status: <span class="status">Checking...</span></p>
-                </div>
-            </div>
-
-            <div class="workbox service" data-url="https://pihole.baiu.cloud">
-                <div class="icon">
-                   <img src="images/pentest.svg" alt="">
-                </div>
-                <div class="desc">
-                   <h3>Pi-Hole</h3>
-                   <p>Status: <span class="status">Checking...</span></p>
-                </div>
-            </div> -->
-
-        <a href="https://casa.baiu.online" target="_blank" class="service-link">
-            <div class="workbox service" data-url="https://casa.baiu.online">
-                <div class="icon">
-                    <img src="images/casaos.svg" alt="">
-                </div>
-                <div class="desc">
-                    <h3>CasaOS</h3>
-                    <p>Status: <span class="status">Checking...</span></p>
-                </div>
-            </div>
-        </a>
-
-        <a href="https://nc.baiu.online" target="_blank" class="service-link">
-            <div class="workbox service" data-url="https://nc.baiu.online">
-                <div class="icon">
-                    <img src="images/nextcloud.svg" alt="">
-                </div>
-                <div class="desc">
-                    <h3>Nextcloud</h3>
-                    <p>Status: <span class="statuss" style="color: #00ffcc;">🟢 Online</span>
-                </div>
-            </div>
-        </a>
-
-        <a href="https://jelly.baiu.online" target="_blank" class="service-link">
-            <div class="workbox service" data-url="https://jelly.baiu.online">
-                <div class="icon">
-                    <img src="images/jellyfin.svg" alt="">
-                </div>
-                <div class="desc">
-                    <h3>Jellyfin</h3>
-                    <p>Status: <span class="status">Checking...</span></p>
-                </div>
-            </div>
-        </a>
-
-        <a href="https://repo.baiu.online" target="_blank" class="service-link">
-            <div class="workbox service" data-url="https://repo.baiu.online">
-                <div class="icon">
-                    <img src="images/network.svg" alt="">
-                </div>
-                <div class="desc">
-                    <h3>Repository</h3>
-                    <p>Status: <span class="status">Checking...</span></p>
-                </div>
-            </div>
-        </a>
-
-        <a href="https://speed.baiu.online" target="_blank" class="service-link">
-            <div class="workbox service" data-url="https://speed.baiu.online">
-                <div class="icon">
-                    <img src="images/myspeed.svg" alt="">
-                </div>
-                <div class="desc">
-                    <h3>MySpeed</h3>
-                    <p>Status: <span class="status">Checking...</span></p>
-                </div>
-            </div>
-        </a>
-
-        <a href="https://torrent.baiu.online" target="_blank" class="service-link">
-            <div class="workbox service" data-url="https://torrent.baiu.online">
-                <div class="icon">
-                    <img src="images/qbittorrent.svg" alt="">
-                </div>
-                <div class="desc">
-                    <h3>Torrent</h3>
-                    <p>Status: <span class="status">Checking...</span></p>
-                </div>
-            </div>
-        </a>
-
-        <a href="https://n8n.baiu.online" target="_blank" class="service-link">
-            <div class="workbox service" data-url="https://n8n.baiu.online">
-                <div class="icon">
-                    <img src="images/n8n.svg" alt="">
-                </div>
-                <div class="desc">
-                    <h3>n8n</h3>
-                    <p>Status: <span class="statuss" style="color: #00ffcc;">🟢 Online</span>
-                </div>
-            </div>
-        </a>
-            
-        <a href="https://gallery.baiu.online" target="_blank" class="service-link">
-            <div class="workbox service" data-url="https://gallery.baiu.online">
-                <div class="icon">
-                    <img src="images/immich.svg" alt="">
-                </div>
-                <div class="desc">
-                    <h3>Immich</h3>
-                    <p>Status: <span class="status">Checking...</span></p>
-                </div>
-            </div>
-        </a>
-
-        <a href="https://radarr.baiu.online" target="_blank" class="service-link">
-            <div class="workbox service" data-url="https://radarr.baiu.online">
-                <div class="icon">
-                    <img src="images/radarr.svg" alt="">
-                </div>
-                <div class="desc">
-                    <h3>Radarr</h3>
-                    <p>Status: <span class="status">Checking...</span></p>
-                </div>
-            </div>
-        </a>
-        
-        <a href="https://bazarr.baiu.online" target="_blank" class="service-link">
-            <div class="workbox service" data-url="https://bazarr.baiu.online">
-                <div class="icon">
-                    <img src="images/bazarr.svg" alt="">
-                </div>
-                <div class="desc">
-                    <h3>Bazarr</h3>
-                    <p>Status: <span class="status" >Checking...</span></p>
-                </div>
-            </div>
-        </a>
-
-        <a href="https://sonarr.baiu.online" target="_blank" class="service-link">
-            <div class="workbox service" data-url="https://sonarr.baiu.online">
-                <div class="icon">
-                    <img src="images/sonarr.svg" alt="">
-                </div>
-                <div class="desc">
-                    <h3>Sonarr</h3>
-                    <p>Status: <span class="status">Checking...</span></p>
-                </div>
-            </div>
-        </a>
-
-        <a href="https://kuma.baiu.online" target="_blank" class="service-link">
-            <div class="workbox service" data-url="https://kuma.baiu.online">
-                <div class="icon">
-                    <img src="images/kuma.svg" alt="">
-                </div>
-                <div class="desc">
-                    <h3>Uptime Kuma</h3>
-                    <p>Status: <span class="status">Checking...</span></p>
-                </div>
-            </div>
-        </a>
-
-        <a href="https://oskt.baiu.online" target="_blank" class="service-link">
-            <div class="workbox service" data-url="https://oskt.baiu.online">
-                <div class="icon">
-                    <img src="images/ost.svg" alt="">
-                </div>
-                <div class="desc">
-                    <h3>OSKT</h3>
-                    <p>Status: <span class="status">Checking...</span></p>
-                </div>
-            </div>
-        </a>
-
-        <a href="https://pihole.baiu.online" target="_blank" class="service-link">
-            <div class="workbox service" data-url="https://pihole.baiu.online">
-                <div class="icon">
-                    <img src="images/pihole.svg" alt="">
-                </div>
-                <div class="desc">
-                    <h3>Pi-Hole</h3>
-                    <p>Status: <span class="status">Checking...</span></p>
-                </div>
-            </div>
-        </a>
-
-        <!-- <div class="workbox">
-                <div class="desc">
-                   <h3>Attention!</h3>
-                   <p>Click the box to access the application.</p>
-                </div>
-            </div> -->
-          </div>
-          
-        <div class="back-wrapper">
-            <a href="index.html">
-                <button class="button backdash-btn">
-                    <i class="fa fa-arrow-left"></i> Back
-                </button>
-            </a>
+  <main class="wrap">
+    <div class="page-head">
+      <div class="row">
+        <div>
+          <p class="eyebrow">// homelab</p>
+          <h1 class="title" style="font-size:clamp(2rem,5vw,3rem);letter-spacing:-0.03em;line-height:1.1;margin-bottom:.6rem">Homelab Dashboard</h1>
+          <p class="sub">Live status of my self-hosted services. Click a card to open it.</p>
         </div>
+        <div class="summary" id="summary" role="status"><span class="led"></span><span id="summaryText">Checking services…</span></div>
+      </div>
+    </div>
 
-       </div>
-   </div>
+    <div class="services" id="services"></div>
+  </main>
 
-   <!---typed js for typing text effect-->
-   <script>
-        async function checkService(serviceBox) {
-            const url = serviceBox.getAttribute("data-url");
-            const statusSpan = serviceBox.querySelector(".status");
-            try {
-                await fetch(url, { mode: "no-cors" });
-                    statusSpan.textContent = "🟢 Online";
-                    statusSpan.style.color = "#00ffcc";
-                } catch {
-                    statusSpan.textContent = "🔴 Offline";
-                    statusSpan.style.color = "#ff4444";
-                }
-            }
+  <script>
+    var DOMAIN = "baiu.online";
+    var SERVICES = [
+      { name: "CasaOS",       sub: "Server OS & app manager", host: "casa",    icon: "casaos.svg" },
+      { name: "Nextcloud",    sub: "Files & sync",            host: "nc",      icon: "nextcloud.svg" },
+      { name: "Jellyfin",     sub: "Media server",            host: "jelly",   icon: "jellyfin.svg" },
+      { name: "Immich",       sub: "Photo library",           host: "gallery", icon: "immich.svg" },
+      { name: "n8n",          sub: "Workflow automation",     host: "n8n",     icon: "n8n.svg" },
+      { name: "Pi-hole",      sub: "Network-wide DNS filter", host: "pihole",  icon: "pihole.svg" },
+      { name: "Uptime Kuma",  sub: "Uptime monitoring",       host: "kuma",    icon: "kuma.svg" },
+      { name: "MySpeed",      sub: "Internet speed tests",    host: "speed",   icon: "myspeed.svg" },
+      { name: "Repository",   sub: "Package mirror",          host: "repo",    icon: "network.svg" },
+      { name: "qBittorrent",  sub: "Download client",         host: "torrent", icon: "qbittorrent.svg" },
+      { name: "Radarr",       sub: "Movie management",        host: "radarr",  icon: "radarr.svg" },
+      { name: "Sonarr",       sub: "TV management",           host: "sonarr",  icon: "sonarr.svg" },
+      { name: "Bazarr",       sub: "Subtitle management",     host: "bazarr",  icon: "bazarr.svg" },
+      { name: "OSKT",         sub: "Self-hosted app",         host: "oskt",    icon: "ost.svg" }
+    ];
 
-        document.querySelectorAll(".service").forEach(serviceBox => {
-        checkService(serviceBox);
-        setInterval(() => checkService(serviceBox), 30000);
-        });
+    var grid = document.getElementById("services");
+    var summary = document.getElementById("summary");
+    var summaryText = document.getElementById("summaryText");
+    var state = {};
+
+    SERVICES.forEach(function (s) {
+      var url = "https://" + s.host + "." + DOMAIN;
+      var a = document.createElement("a");
+      a.className = "service";
+      a.href = url; a.target = "_blank"; a.rel = "noopener";
+      a.innerHTML =
+        '<div class="ico"><img src="images/' + s.icon + '" alt="" loading="lazy"></div>' +
+        '<div><h3>' + s.name + '</h3><small>' + s.sub + '</small>' +
+        '<span class="status checking">Checking…</span></div>';
+      grid.appendChild(a);
+      s.el = a.querySelector(".status");
+      s.url = url;
+    });
+
+    function render() {
+      var total = SERVICES.length, up = 0, done = 0;
+      SERVICES.forEach(function (s) {
+        if (state[s.host] !== undefined) done++;
+        if (state[s.host] === true) up++;
+      });
+      if (done < total) { summaryText.textContent = "Checking services…"; return; }
+      summaryText.textContent = up + " / " + total + " services online";
+      summary.className = "summary " + (up === total ? "good" : "warn");
+    }
+
+    // With mode:"no-cors" the response is opaque, so this reliably detects
+    // "reachable vs. not reachable" (DNS/tunnel/network failure), not HTTP status.
+    function check(s) {
+      var ctrl = new AbortController();
+      var timer = setTimeout(function () { ctrl.abort(); }, 6000);
+      var t0 = performance.now();
+      fetch(s.url, { mode: "no-cors", cache: "no-store", signal: ctrl.signal })
+        .then(function () {
+          var ms = Math.round(performance.now() - t0);
+          s.el.className = "status online";
+          s.el.textContent = "Online · " + ms + " ms";
+          state[s.host] = true;
+        })
+        .catch(function () {
+          s.el.className = "status offline";
+          s.el.textContent = "Offline";
+          state[s.host] = false;
+        })
+        .finally(function () { clearTimeout(timer); render(); });
+    }
+
+    function checkAll() { SERVICES.forEach(check); }
+    checkAll();
+    setInterval(checkAll, 30000);
   </script>
-
-<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"8782c5b17a634a4db2255c31199cd484","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
-<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"8782c5b17a634a4db2255c31199cd484","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
 </body>
 </html>
