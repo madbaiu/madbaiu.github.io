@@ -2,349 +2,213 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Happy Birthday Caayaang 💚❤️</title>
-
-<style>
-body {
-  margin: 0;
-  font-family: 'Georgia', serif;
-  background: linear-gradient(180deg, #E2ECE3, #D3E2D6);
-  color: #2F4F3A;
-  text-align: center;
-  overflow-x: hidden;
-}
-
-/* Soft paper texture */
-body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background: radial-gradient(rgba(0,0,0,0.03) 1px, transparent 1px);
-  background-size: 4px 4px;
-  opacity: 0.3;
-  pointer-events: none;
-}
-
-/* Sections */
-.section {
-  padding: 3rem 1.5rem;
-  max-width: 1100px;
-  margin: auto;
-  position: relative;
-  z-index: 1;
-}
-
-/* Profile */
-.photo img {
-  width: 140px;
-  height: 140px;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 6px solid #5E8C61;
-  margin-bottom: 1rem;
-}
-
-h1 { margin-bottom: 0.3rem; }
-h2 { font-weight: normal; margin-top: 0; }
-
-.counter {
-  margin-top: 0.5rem;
-  font-size: 0.95rem;
-  color: #5E8C61;
-  font-weight: bold;
-}
-
-.divider {
-  margin: 2rem auto;
-  width: 80px;
-  height: 2px;
-  background: #A7C4A0;
-}
-
-.message {
-  line-height: 1.8;
-  font-size: 1.1rem;
-  margin-top: 1rem;
-}
-
-/* Pinterest Masonry */
-.gallery {
-  column-count: 4;
-  column-gap: 1.5rem;
-  margin-top: 2rem;
-}
-
-.gallery img {
-  width: 100%;
-  margin-bottom: 1.5rem;
-  border-radius: 20px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-  cursor: pointer;
-  break-inside: avoid;
-}
-
-.gallery img:hover {
-  transform: scale(1.02);
-}
-
-@media (max-width: 1100px) {
-  .gallery { column-count: 3; }
-}
-
-@media (max-width: 800px) {
-  .gallery { column-count: 2; }
-}
-
-@media (max-width: 500px) {
-  .gallery { column-count: 1; }
-}
-
-/* Modal */
-.modal {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.85);
-  justify-content: center;
-  align-items: center;
-  z-index: 999;
-}
-
-.modal img {
-  max-width: 90%;
-  max-height: 85%;
-  border-radius: 20px;
-}
-
-.close-btn {
-  position: absolute;
-  top: 20px;
-  right: 30px;
-  font-size: 2rem;
-  color: white;
-  cursor: pointer;
-}
-
-.footer {
-  margin-top: 3rem;
-  font-style: italic;
-}
-
-.wedding-countdown {
-  margin-top: 1.5rem;
-  padding: 1.5rem;
-  font-size: 1.5rem;
-  font-weight: bold;
-  background: linear-gradient(135deg, #5E8C61, #3F6F4A);
-  color: white;
-  border-radius: 20px;
-  box-shadow: 0 15px 35px rgba(0,0,0,0.15);
-  display: inline-block;
-  max-width: 100%;
-  letter-spacing: 1px;
-  line-height: 1.6;
-  animation: pulseGlow 2.5s ease-in-out infinite;
-}
-
-@keyframes pulseGlow {
-  0% { box-shadow: 0 0 15px rgba(94,140,97,0.4); }
-  50% { box-shadow: 0 0 35px rgba(94,140,97,0.7); }
-  100% { box-shadow: 0 0 15px rgba(94,140,97,0.4); }
-}
-
-@media (max-width: 500px) {
-  .wedding-countdown { font-size: 1.15rem; padding: 1.2rem; }
-}
-
-</style>
+<meta name="theme-color" content="#07100d">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:ital,wght@0,400;0,500;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="love.css">
 </head>
-
 <body>
 
-<div class="section">
-  <div class="photo">
-    <img src="/images/q.webp" alt="Qeysa">
-  </div>
+<main class="page">
 
-  <h1>Happy Birthday Istliiikuu ❤️ 🍵</h1>
-  <h2>Qeycaaa Tantiikk Gummushh Nyoy ✨</h2>
+  <header class="hero fade">
+    <div class="avatar"><img src="/images/q.webp" alt="Qeysa" width="128" height="128"></div>
+    <span class="badge">🎂 Happy Birthday</span>
+    <h1><span class="grad">Istliiikuu</span> ❤️ 🍵</h1>
+    <p class="sub">Qeycaaa Tantiikk Gummushh Nyoy ✨</p>
+  </header>
 
-  <div class="counter" id="loveCounter"></div>
+  <!-- counters -->
+  <section class="card fade">
+    <p class="eyebrow">// together since 5 July 2025</p>
+    <p class="big"><span id="datingDays">0</span> <span style="font-size:1rem;font-weight:500;color:var(--muted)">days and counting 💚</span></p>
+  </section>
 
-  <div class="wedding-countdown" id="weddingCountdown"></div>
+  <section class="card fade">
+    <p class="eyebrow">// married since 17 May 2026</p>
+    <div class="tiles" aria-live="off">
+      <div class="tile"><b data-love="months">0</b><span>months</span></div>
+      <div class="tile"><b data-love="days">0</b><span>days</span></div>
+      <div class="tile"><b data-love="hours">00</b><span>hours</span></div>
+      <div class="tile"><b data-love="minutes">00</b><span>min</span></div>
+      <div class="tile"><b data-love="seconds">00</b><span>sec</span></div>
+    </div>
+  </section>
 
-  <div class="divider"></div>
+  <!-- letter -->
+  <section class="card letter fade">
+    <p class="open">Selamat ulang tauun, cintakuuuu 🥺</p>
 
-  <div class="message">
-    Selamat ulang tauun, cintakuuuu 🥺<br><br>
-    Di umur yang sekarang, semoga cayaaangg makin bahagiaaa yaaa,
-    maaakkiiin sukses, makiiin kuuaaaat, makinnn gummushh, makinnn ucuulll, dan semua impian cayaanggg tercapaiii. Amiiinnnnn<br><br>
+    <p>
+      Di umur yang sekarang, semoga cayaaangg makin bahagiaaa yaaa,
+      maaakkiiin sukses, makiiin kuuaaaat, makinnn gummushh, makinnn ucuulll, dan semua impian cayaanggg tercapaiii. Amiiinnnnn
+    </p>
 
-    caaaayaangggg 🥺🤍<br>
+    <p>
+      caaaayaangggg 🥺🤍<br>
+      akuu tuh kadang masih suka mikir sendiriii<br>
+      kok bisaaa yaa kitaaa sampaiiii sedekeet iniii? sejauuuh iniii? selamaaa iniii?
+    </p>
 
-    akuu tuh kadang masih suka mikir sendiriii<br>
-    kok bisaaa yaa kitaaa sampaiiii sedekeet iniii? sejauuuh iniii? selamaaa iniii?<br><br>
+    <p>
+      dariii yaang cumaa chaat biaasa, jadiii yang tiiap hariii gaa bisaaa tanpaa kabar<br>
+      darii yang cumaaa “kamu siaapa”, sekarang jadiii “kamuu rumah akuu”
+    </p>
 
-    dariii yaang cumaa chaat biaasa, jadiii yang tiiap hariii gaa bisaaa tanpaa kabar<br>
-    darii yang cumaaa “kamu siaapa”, sekarang jadiii “kamuu rumah akuu”<br><br>
+    <p>
+      akuuu juga bener-bener gaa nyangkaaa...<br>
+      di antaraa banyak banget kemungkinan di dunia iniii<br>
+      yang jadii pasangan akuuu itu kamuuu<br>
+      perempuan secantiiik, sebaiiik, selembut, segummuushh kamuuu
+    </p>
 
-    akuuu juga bener-bener gaa nyangkaaa...<br>
-    di antaraa banyak banget kemungkinan di dunia iniii<br>
-    yang jadii pasangan akuuu itu kamuuu<br>
-    perempuan secantiiik, sebaiiik, selembut, segummuushh kamuuu<br><br>
+    <p>
+      makasih ya caaayyaaang udaah stay<br>
+      udaah sabaaar samaaa akuuu<br>
+      udaah nerimaaa akuu apa adanyaaa
+    </p>
 
-    makasih ya caaayyaaang udaah stay<br>
-    udaah sabaaar samaaa akuuu<br>
-    udaah nerimaaa akuu apa adanyaaa<br><br>
+    <p>
+      akuu banggaa bangett punyaaa kamuuu<br>
+      dan tiappp harii akuuu selaluuu bersyukur… karenaaa yang adaa diii samping akuuu ituu kamuuu 💕
+    </p>
 
-    akuu banggaa bangett punyaaa kamuuu<br>
-    dan tiappp harii akuuu selaluuu bersyukur… karenaaa yang adaa diii samping akuuu ituu kamuuu 💕<br><br>
+    <p>peeeeyyyuuuuukkkkk dullluuuuu ccciiinnniiiii 🤍</p>
 
-    peeeeyyyuuuuukkkkk dullluuuuu ccciiinnniiiii 🤍<br><br>
+    <p>
+      Makaciiii yaa cayaaanggg sudah hadir di hidup aku.<br>
+      Makasiiii jugaa sudaaa bertahaann selamaa inii, dann untukk selamanyaaa.<br>
+      kamuuu cayaanggkuu, kamuuu ucuullkuuu, kamuu rumahkuu, kamuu tenangkuuu, kamuuu masa depankuuu 💕
+    </p>
 
-    Makaciiii yaa cayaaanggg sudah hadir di hidup aku.<br>
-    Makasiiii jugaa sudaaa bertahaann selamaa inii, dann untukk selamanyaaa.<br>
-    kamuuu cayaanggkuu, kamuuu ucuullkuuu, kamuu rumahkuu, kamuu tenangkuuu, kamuuu masa depankuuu 💕<br><br>
+    <p>Wwwwooopppyyyyuuuuuuu Sayaaaaaanggggggg 🤍💕💚🥰😘❤️💚🖤💕</p>
+  </section>
 
-    Wwwwooopppyyyyuuuuuuu Sayaaaaaanggggggg 🤍💕💚🥰😘❤️💚🖤💕
-  </div>
-</div>
-
-<div class="section">
-  <h2>Our Memories 🍃</h2>
+  <!-- gallery -->
+  <h2 class="title">Our Memories 🍃</h2>
   <div class="gallery" id="gallery"></div>
+  <p class="empty" id="galleryEmpty" hidden>Memories are loading…</p>
 
-  <div class="footer">
-    Made with love — Bayuu, (cuamiii muuu) 💚<br>
+  <footer>
+    Made with love — Bayuu, <b>(cuamiii muuu)</b> 💚<br>
     mumumumumumumumumumumumumumumumumumumumumu
-  </div>
+  </footer>
+</main>
+
+<!-- lightbox -->
+<div class="modal" id="imageModal" role="dialog" aria-modal="true" aria-label="Photo viewer">
+  <button class="x" id="closeModal" aria-label="Close">&times;</button>
+  <button class="prev" id="prevBtn" aria-label="Previous photo">&#8249;</button>
+  <img id="modalImage" alt="">
+  <button class="next" id="nextBtn" aria-label="Next photo">&#8250;</button>
 </div>
 
-<div class="modal" id="imageModal">
-  <span class="close-btn" id="closeModal">&times;</span>
-  <img id="modalImage">
-</div>
-
-<!-- <script>
-  alert("kayaknya ada yang ulang tahun nihh");
-  alert("klik dulu ini seng");
-  alert("ini juga");
-  alert("hehe");
-  alert("selamat ulang tahun ya cayaaangkuuuu ");
-  alert("semoga panjang umur");
-  alert("sehat selalu");
-  alert("semakin bertambah usia cayaangg semoga cayaangg semakin sukses dan bahagia selalu yaa");
-  alert("semoga semua keinginan cayaangg juga bisa tercapai");
-  alert("harus selalu jaga kesehatan ya cayaaangg");
-  alert("kann udah nikah hehe");
-  alert("makannya juga jangan telat telat yaa");
-  alert("ibadahnya juga jangan sampe di tinggalin");
-  alert("makannn yg banyakkk jugaaa jangann dikitt telluuss");
-  alert("biarr makinn embulll kek alenaa");
-  alert("hehe");
-  alert("yaudahh klikk dahh inii yg terakhir");
-  alert("tapi boong");
-  alert("anjaayy");
-  alert("prikitiwww");
-  alert("hehe");
-  alert("wwwooopppyuuuuuuuuu cayaaaaaanggggggg");
-</script> -->
-
+<script src="love.js"></script>
 <script>
-// Relationship Counter (since we got together)
-const startDate = new Date("2025-07-05");
-const today = new Date();
-const diffDays = Math.floor((today - startDate) / (1000*60*60*24));
-document.getElementById("loveCounter").innerText =
-  "🍵 July 5, 2025 — " + diffDays + " days and counting 💚";
+  Love.floaters();
+  Love.startCounter();
 
-// Married-since counter (wedding: 17 May 2026, WITA)
-const WEDDING = new Date("2026-05-17T00:00:00+08:00");
-const SHIFT = 8 * 60 * 60 * 1000;
+  // Days together since 5 July 2025 (WITA)
+  (function () {
+    var start = new Date("2025-07-05T00:00:00+08:00");
+    document.getElementById("datingDays").textContent = Math.floor((Date.now() - start) / 86400000);
+  })();
 
-function elapsed(from, to) {
-  const a = new Date(from.getTime() + SHIFT);
-  const b = new Date(to.getTime() + SHIFT);
-  const anchorFor = m => new Date(Date.UTC(a.getUTCFullYear(), a.getUTCMonth() + m, a.getUTCDate(),
-    a.getUTCHours(), a.getUTCMinutes(), a.getUTCSeconds()));
+  // ---- Gallery + lightbox ----
+  var modal = document.getElementById("imageModal");
+  var modalImg = document.getElementById("modalImage");
+  var photos = [];
+  var current = 0;
 
-  let months = (b.getUTCFullYear() - a.getUTCFullYear()) * 12 + (b.getUTCMonth() - a.getUTCMonth());
-  let anchor = anchorFor(months);
-  if (anchor > b) { months -= 1; anchor = anchorFor(months); }
-
-  let rest = Math.floor((b - anchor) / 1000);
-  const days = Math.floor(rest / 86400); rest -= days * 86400;
-  const hours = Math.floor(rest / 3600); rest -= hours * 3600;
-  const minutes = Math.floor(rest / 60);
-  const seconds = rest - minutes * 60;
-  return { months, days, hours, minutes, seconds };
-}
-
-function updateMarriedCounter() {
-  const now = new Date();
-  const box = document.getElementById("weddingCountdown");
-
-  if (now < WEDDING) { box.innerHTML = "💍 17 May 2026 💍"; return; }
-
-  const t = elapsed(WEDDING, now);
-  box.innerHTML =
-    "💍 Married since 17 May 2026 💍<br>" +
-    "💚 " + t.months + " Months • " + t.days + " Days<br>" +
-    t.hours + " Hours • " + t.minutes + " Minutes • " + t.seconds + " Seconds 💚";
-}
-
-updateMarriedCounter();
-setInterval(updateMarriedCounter, 1000);
-
-// Modal
-const modal = document.getElementById("imageModal");
-const modalImg = document.getElementById("modalImage");
-const closeBtn = document.getElementById("closeModal");
-
-closeBtn.onclick = () => modal.style.display = "none";
-modal.onclick = (e) => {
-  if (e.target === modal) modal.style.display = "none";
-};
-
-document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape") modal.style.display = "none";
-});
-
-// Load Images (No Shuffle)
-async function loadImages() {
-  try {
-    const response = await fetch('/mem/');
-    const text = await response.text();
-    const parser = new DOMParser();
-    const doc = parser.parseFromString(text, 'text/html');
-    const links = Array.from(doc.querySelectorAll('a'));
-
-    let imageFiles = links
-      .map(link => link.getAttribute('href'))
-      .filter(href => href.match(/\.(jpg|jpeg|png|webp)$/i));
-
-    const gallery = document.getElementById('gallery');
-
-    imageFiles.forEach(file => {
-      const img = document.createElement('img');
-      img.src = '/mem/' + file;
-      img.loading = "lazy";
-      gallery.appendChild(img);
-
-      img.addEventListener("click", () => {
-        modal.style.display = "flex";
-        modalImg.src = img.src;
-      });
-    });
-
-  } catch (err) {
-    console.error("Failed to load images:", err);
+  function show(i) {
+    if (!photos.length) return;
+    current = (i + photos.length) % photos.length;
+    modalImg.src = photos[current];
   }
-}
+  function openAt(i) { modal.classList.add("open"); show(i); }
+  function closeModal() { modal.classList.remove("open"); }
 
-loadImages();
+  document.getElementById("closeModal").onclick = closeModal;
+  document.getElementById("prevBtn").onclick = function (e) { e.stopPropagation(); show(current - 1); };
+  document.getElementById("nextBtn").onclick = function (e) { e.stopPropagation(); show(current + 1); };
+  modal.onclick = function (e) { if (e.target === modal) closeModal(); };
+  document.addEventListener("keydown", function (e) {
+    if (!modal.classList.contains("open")) return;
+    if (e.key === "Escape") closeModal();
+    if (e.key === "ArrowLeft") show(current - 1);
+    if (e.key === "ArrowRight") show(current + 1);
+  });
+
+  // swipe on phones
+  var touchX = null;
+  modal.addEventListener("touchstart", function (e) { touchX = e.touches[0].clientX; }, { passive: true });
+  modal.addEventListener("touchend", function (e) {
+    if (touchX === null) return;
+    var dx = e.changedTouches[0].clientX - touchX;
+    if (Math.abs(dx) > 50) show(current + (dx < 0 ? 1 : -1));
+    touchX = null;
+  });
+
+  // Finds photos in mem/ from the server's folder listing, or from mem/photos.json.
+  // Only the FILE NAME is taken from the listing, so it works whether the server
+  // returns "a.jpg", "/mem/a.jpg" or "mem/a.jpg".
+  async function loadImages() {
+    var base = new URL("mem/", location.href);
+    var names = [];
+
+    // 1) folder listing
+    try {
+      var res = await fetch(base);
+      if (res.ok) {
+        var doc = new DOMParser().parseFromString(await res.text(), "text/html");
+        names = Array.from(doc.querySelectorAll("a"))
+          .map(function (a) { return (a.getAttribute("href") || "").split("?")[0].split("#")[0]; })
+          .filter(function (h) { return /\.(jpe?g|png|webp)$/i.test(h); })
+          .map(function (h) {
+            // decode first, then keep only the file name (handles "/" and Windows "\\")
+            try { h = decodeURIComponent(h); } catch (e) { /* keep as is */ }
+            return h.split(/[\\/]/).filter(Boolean).pop() || "";
+          });
+      }
+    } catch (err) { /* no listing available */ }
+
+    // 2) fallback: mem/photos.json -> ["a.jpg", "b.webp", ...]
+    if (!names.length) {
+      try {
+        var r = await fetch(new URL("photos.json", base));
+        if (r.ok) names = [].concat(await r.json());
+      } catch (err) { /* no manifest either */ }
+    }
+
+    names = names.filter(function (n, i) { return n && names.indexOf(n) === i; });
+    console.info("[memories] looking in", base.href, "-", names.length, "photo(s) listed");
+
+    var gallery = document.getElementById("gallery");
+    if (!names.length) {
+      console.warn("[memories] no photos found (no folder listing and no photos.json).");
+      return;
+    }
+
+    names.forEach(function (name) {
+      var img = document.createElement("img");
+      img.alt = "Our memory";
+      img.loading = "lazy";
+      img.style.display = "none";           // hidden until it really loads
+      img.onload = function () { img.style.display = ""; img.dataset.ok = "1"; };
+      img.onerror = function () { console.warn("[memories] could not load", img.src); img.remove(); };
+      img.addEventListener("click", function () {
+        var loaded = Array.from(gallery.querySelectorAll("img[data-ok]"));
+        photos = loaded.map(function (i) { return i.src; });
+        openAt(loaded.indexOf(img));
+      });
+      img.src = new URL(encodeURIComponent(name), base).href;
+      gallery.appendChild(img);
+    });
+  }
+  loadImages();
 </script>
-
 </body>
 </html>
