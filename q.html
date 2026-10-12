@@ -196,8 +196,11 @@
       var img = document.createElement("img");
       img.alt = "Our memory";
       img.loading = "lazy";
-      img.style.display = "none";           // hidden until it really loads
-      img.onload = function () { img.style.display = ""; img.dataset.ok = "1"; };
+      // Invisible (but still laid out, so lazy-loading works) until it really loads.
+      // Note: display:none would stop lazy images from ever loading.
+      img.style.opacity = "0";
+      img.style.minHeight = "180px";
+      img.onload = function () { img.style.opacity = ""; img.style.minHeight = ""; img.dataset.ok = "1"; };
       img.onerror = function () { console.warn("[memories] could not load", img.src); img.remove(); };
       img.addEventListener("click", function () {
         var loaded = Array.from(gallery.querySelectorAll("img[data-ok]"));
